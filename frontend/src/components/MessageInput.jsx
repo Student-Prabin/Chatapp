@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { useChatStore } from "../store/useChatStore";
 import { Image, Send, SmilePlus, X } from "lucide-react";
 import toast from "react-hot-toast";
+import EmojiPicker from "emoji-picker-react";
 
 
 const MessageInput = () => {
@@ -9,7 +10,12 @@ const MessageInput = () => {
   const [imagePreview, setImagePreview] = useState(null);
   const fileInputRef = useRef(null);
   const { sendMessage } = useChatStore();
+  const [open, setOpen] = useState(false);
 
+  const handleEmoji = (e) => {
+    setText(prev => prev + e.emoji);
+    setOpen(false);
+  }
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -87,15 +93,14 @@ const MessageInput = () => {
             ref={fileInputRef}
             onChange={handleImageChange}
           />
-          {/* emoji
+          <EmojiPicker className="absolute" open={open} onEmojiClick={handleEmoji} />
           <button
             type="button"
-            className={`hidden sm:flex btn btn-circle
-                     ${imagePreview ? "text-yellow-500" : "text-zinc-400"}`}
-
+            className={`hidden sm:flex btn btn-circle text-yellow-500`}
+            onClick={() => setOpen(prev => !prev)}
           >
             <SmilePlus size={20} />
-          </button> */}
+          </button>
 
 
           <button
