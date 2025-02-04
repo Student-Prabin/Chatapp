@@ -56,9 +56,12 @@ const MessageInput = () => {
   };
 
   return (
+
     <div className="p-4 w-full">
+
       {imagePreview && (
         <div className="mb-3 flex items-center gap-2">
+
           <div className="relative">
             <img
               src={imagePreview}
@@ -78,6 +81,7 @@ const MessageInput = () => {
       )}
 
       <form onSubmit={handleSendMessage} className="flex items-center gap-2">
+
         <div className="flex-1 flex gap-2">
           <input
             type="text"
@@ -93,15 +97,19 @@ const MessageInput = () => {
             ref={fileInputRef}
             onChange={handleImageChange}
           />
-          <EmojiPicker className="absolute" open={open} onEmojiClick={handleEmoji} />
-          <button
-            type="button"
-            className={`hidden sm:flex btn btn-circle text-yellow-500`}
-            onClick={() => setOpen(prev => !prev)}
-          >
-            <SmilePlus size={20} />
-          </button>
+          <div className="relative">
+            <button
+              type="button"
+              className={`hidden sm:flex btn btn-circle text-yellow-500`}
+              onClick={() => setOpen(prev => !prev)}
+            >
+              <SmilePlus size={20} />
+            </button>
+            <div className="absolute bottom-[50px] right-0">
+              <EmojiPicker className=" right-0" open={open} onEmojiClick={handleEmoji} />
+            </div>
 
+          </div>
 
           <button
             type="button"
@@ -114,6 +122,7 @@ const MessageInput = () => {
           </button>
 
         </div>
+
         <button
           type="submit"
           className="btn btn-sm btn-circle"
