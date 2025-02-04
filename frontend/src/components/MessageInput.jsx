@@ -1,13 +1,15 @@
 import { useRef, useState } from "react";
 import { useChatStore } from "../store/useChatStore";
-import { Image, Send, X } from "lucide-react";
+import { Image, Send, SmilePlus, X } from "lucide-react";
 import toast from "react-hot-toast";
+
 
 const MessageInput = () => {
   const [text, setText] = useState("");
   const [imagePreview, setImagePreview] = useState(null);
   const fileInputRef = useRef(null);
   const { sendMessage } = useChatStore();
+
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -85,6 +87,16 @@ const MessageInput = () => {
             ref={fileInputRef}
             onChange={handleImageChange}
           />
+          {/* emoji
+          <button
+            type="button"
+            className={`hidden sm:flex btn btn-circle
+                     ${imagePreview ? "text-yellow-500" : "text-zinc-400"}`}
+
+          >
+            <SmilePlus size={20} />
+          </button> */}
+
 
           <button
             type="button"
@@ -95,6 +107,7 @@ const MessageInput = () => {
             <Image size={20} />
 
           </button>
+
         </div>
         <button
           type="submit"
