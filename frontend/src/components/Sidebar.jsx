@@ -5,9 +5,6 @@ import SidebarSkeleton from "./skeletons/SidebarSkeleton";
 import { UserRoundPlus, Users } from "lucide-react";
 
 
-
-
-
 const Sidebar = () => {
   const { getUsers, users, selectedUser, setSelectedUser, isUsersLoading } = useChatStore();
 
