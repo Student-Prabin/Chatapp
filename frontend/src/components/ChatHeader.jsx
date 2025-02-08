@@ -79,7 +79,7 @@ const ChatHeader = () => {
 
           {/* call button */}
 
-          <button onClick={() => handleCall(ZegoUIKitPrebuilt.InvitationTypeVoiceCall)}>
+          <button className="mr-10" onClick={() => handleCall(ZegoUIKitPrebuilt.InvitationTypeVoiceCall)}>
             <LucidePhone />
           </button>
 
