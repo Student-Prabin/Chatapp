@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuthStore } from "../store/useAuthStore";
-import { LogOut, LucideMessageCircle, MessageCircleIcon, MessageSquare, Settings, User } from "lucide-react";
+import { LogOut, LucideMessageCircle, Settings, } from "lucide-react";
 
 
 
