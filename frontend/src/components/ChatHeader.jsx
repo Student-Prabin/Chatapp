@@ -1,8 +1,7 @@
-import { LucidePhone, X } from "lucide-react";
+import { X } from "lucide-react";
 import { useAuthStore } from "../store/useAuthStore";
 import { useChatStore } from "../store/useChatStore";
-import { ZIM } from "zego-zim-web";
-import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
+
 
 
 const ChatHeader = () => {

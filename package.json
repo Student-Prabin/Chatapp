@@ -10,8 +10,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@zegocloud/zego-uikit-prebuilt": "^2.14.1",
-    "zego-zim-web": "^2.16.0"
-  }
+  "dependencies": {}
 }
