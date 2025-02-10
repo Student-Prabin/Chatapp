@@ -100,7 +100,7 @@ const MessageInput = () => {
           <div className="relative">
             <button
               type="button"
-              className={`hidden sm:flex btn btn-circle text-yellow-500`}
+              className="hidden sm:flex btn btn-circle text-yellow-500"
               onClick={() => setOpen(prev => !prev)}
             >
               <SmilePlus size={20} />

@@ -1,60 +1,15 @@
 import { LucidePhone, X } from "lucide-react";
 import { useAuthStore } from "../store/useAuthStore";
 import { useChatStore } from "../store/useChatStore";
-import { useEffect, useState } from "react";
 import { ZIM } from "zego-zim-web";
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 
 
 const ChatHeader = () => {
   const { selectedUser, setSelectedUser } = useChatStore();
-  const { onlineUsers, authUser } = useAuthStore();
-  const [userInfo, setUserInfo] = useState({ userName: "", userId: "" })
-  let pickupId = selectedUser._id;
-  function init() {
-    const userId = authUser._id;
-    const userName = authUser.fullName;
-    setUserInfo({ userName: userName, userId: userId });
+  const { onlineUsers } = useAuthStore();
 
-  }
 
-  useEffect(() => {
-    init();
-  }, []);
-
-  function handleCall(callType) {
-    const appId = 1018307753;
-    const serverSecret = "311024462d2450c7530c79ae2a846744";
-
-    const TOKEN = ZegoUIKitPrebuilt.generateKitTokenForTest(
-      appId,
-      serverSecret,
-      null,
-      userInfo.userId,
-      userInfo.userName
-    );
-    const zp = ZegoUIKitPrebuilt.create(TOKEN);
-    zp.addPlugins({ ZIM });
-
-    let pickup = pickupId;
-    if (!pickup) {
-      alert("userId not found");
-      return;
-    }
-
-    zp.sendCallInvitation({
-      callees: [{ userID: pickup, userName: userInfo.userName }],
-      callType,
-      timeout: 50,
-    }).then((res) => {
-      console.log(res);
-      if (res.errorInvitees.length) {
-        alert("Didnt picked up")
-      }
-    }).catch((err) => {
-      console.log(err)
-    })
-  }
 
   return (
     <div className="p-2.5 border-b border-base-300">
@@ -77,11 +32,6 @@ const ChatHeader = () => {
         </div>
         <div>
 
-          {/* call button */}
-
-          <button className="mr-10" onClick={() => handleCall(ZegoUIKitPrebuilt.InvitationTypeVoiceCall)}>
-            <LucidePhone />
-          </button>
 
           {/* Close button */}
           <button onClick={() => setSelectedUser(null)}>

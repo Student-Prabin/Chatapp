@@ -28,21 +28,10 @@ const Sidebar = () => {
 
         <div className="border-b border-base-300 w-full p-4">
 
-          <div className="flex items-center justify-between">
-            <div className="flex gap-2">
-              <Users className="size-6" />
-              <span className="font-medium hidden lg:block">Contacts</span>
-            </div>
-            {/* Group */}
-
-            <button>
-              <UserRoundPlus />
-            </button>
-
+          <div className="flex gap-2">
+            <Users className="size-6" />
+            <span className="font-medium hidden lg:block">Contacts</span>
           </div>
-
-
-
 
 
           {/* Online filter toggle */}
